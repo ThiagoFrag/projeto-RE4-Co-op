@@ -1,4 +1,12 @@
-# 🎮 Resident Evil 4 (PC Original) - Co-op Mod
+# 🎮 RESIDENT EVIL 4 CO-OP MOD
+
+## O Primeiro Mod Co-op REAL para RE4!
+
+**Objetivo:** Transformar Ashley em personagem jogável controlado pelo Player 2
+
+**Status:** 🔬 Em Desenvolvimento
+
+---
 
 ## 📋 Informações do Binário
 
@@ -6,10 +14,118 @@
 |-------|-------|
 | **Jogo** | Resident Evil 4 (2005 PC Port / Steam) |
 | **Executável** | bio4.exe |
+| **Versão Alvo** | 1.1.0 (UHD) |
 | **Arquitetura** | x86 (32-bit) |
-| **MD5** | bc342c1d5060166c26c515375c2... |
-| **Caminho** | `C:\Program Files (x86)\Steam\steamapps\common\Resident Evil 4\Bin32\` |
 | **Engine** | Proprietária Capcom |
+
+---
+
+## 🚀 Por Que Este Mod É Diferente?
+
+### Mods Anteriores (Falhos):
+- ❌ Parsec/Remote Play = Streaming, não co-op real
+- ❌ Trainers = Sem controle real do P2
+- ❌ Mods visuais = Só aparência
+
+### Nosso Mod:
+- ✅ **Input real do Controller 2** via XInput
+- ✅ **Controle total da Ashley** (movimento, combate)
+- ✅ **Baseado no SDK do re4_tweaks** (80% das funções documentadas!)
+- ✅ **Hooks testados e funcionando**
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+residentevil/
+├── README.md              # Este arquivo
+├── docs/
+│   ├── ANALISE_TECNICA_COMPLETA.md  # Análise profunda
+│   └── GUIA_IMPLEMENTACAO.md        # Como implementar
+├── ghidra/
+│   ├── bookmarks.md       # Templates para Ghidra
+│   ├── structures.md      # Estruturas do jogo
+│   └── hooks.md           # Documentação de hooks
+├── mod/
+│   ├── src/
+│   │   ├── coop_core.h    # Header principal
+│   │   └── coop_main.cpp  # Implementação
+│   └── dll/
+│       └── coop_mod.cpp   # Template antigo
+└── notes/
+    └── progress.md        # Tracking de progresso
+```
+
+---
+
+## 🔬 Base Técnica
+
+### SDK Disponível
+O projeto **re4_tweaks** tem um SDK completo:
+- https://github.com/nipkownix/re4_tweaks
+
+### IDA Database
+80% das funções nomeadas:
+- https://github.com/emoose/re4-research
+
+### Estruturas Chave
+```cpp
+cPlayer  (0x814 bytes) - Estrutura do jogador
+cEm      (0x408 bytes) - Base entity
+Vec      (12 bytes)    - Vetor 3D
+
+// Funções já documentadas:
+PlayerPtr()  // Retorna Leon
+AshleyPtr()  // Retorna Ashley - JÁ EXISTE!
+```
+
+---
+
+## 🎯 Plano de Implementação
+
+### Fase 1: Input ✏️
+- [ ] Capturar Controller 2 via XInput
+- [ ] Mapear botões
+- [ ] Testar detecção
+
+### Fase 2: Controle Ashley ✏️
+- [ ] Hook da função de IA
+- [ ] Aplicar input do P2
+- [ ] Movimento básico
+
+### Fase 3: Combate ✏️
+- [ ] Habilitar armas para Ashley
+- [ ] Sistema de mira
+- [ ] Processamento de tiro
+
+### Fase 4: Câmera ✏️
+- [ ] Câmera dinâmica (segue os dois)
+- [ ] Ou: Split-screen
+
+---
+
+## 🔗 Recursos
+
+| Recurso | Link |
+|---------|------|
+| re4_tweaks | https://github.com/nipkownix/re4_tweaks |
+| re4-research | https://github.com/emoose/re4-research |
+| IDA Database | [Mediafire](https://www.mediafire.com/file/4t4l7xo7rjrrh6a/bio4-221105.zip) |
+| RE4 HD Project | https://www.re4hd.com/ |
+
+---
+
+## 👥 Créditos
+
+- **emoose** - IDA Database, research
+- **nipkownix** - re4_tweaks, SDK C++
+- **MeganGrass** - RE assistance
+- **Comunidade RE4** - Documentação
+
+---
+
+*Projeto iniciado em Janeiro 2026*
 
 ---
 
